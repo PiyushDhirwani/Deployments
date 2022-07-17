@@ -1,1 +1,41 @@
+# [START tf-init]
 
+steps:
+- id: 'tf init'
+  name: 'hashicorp/terraform'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      cd VPC+VM2/$master
+      terraform init
+
+
+# [END tf-init]
+      
+# [START tf-plan]
+- id: 'tf plan'
+  name: 'hashicorp/terraform'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      cd VPC+VM2/$master
+      terraform plan
+
+
+# [END tf-plan]
+
+# [START tf-apply]
+- id: 'tf apply'
+  name: 'hashicorp/terraform'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      cd VPC+VM2/$master
+      terraform apply -auto-approve
+
+      
+
+# [END tf-apply]
